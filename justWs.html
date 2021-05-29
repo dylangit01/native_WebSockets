@@ -1,4 +1,11 @@
 <script>
-	let ws = new WebSocket('ws://localhost:4000')
+	const ws = new WebSocket('ws://localhost:4000');
+	ws.onmessage = (event) => {
+		console.log(event.data);
+	};
+
+	ws.onopen = (event) => {
+		ws.send('Hey, WebSocket server, I am excited I am connected!');
+	};
 
 </script>
